@@ -20,15 +20,15 @@ namespace SETUNA.Main.Option
             _so = opt;
             LoadSetunaOption();
 
-            linkLabel1.Text = "官方版本（地址已挂）";
-            linkLabel1.Links.Add(0, linkLabel1.Text.Length, URLUtils.OriginURL);
-            linkLabel1.LinkClicked += LinkLabel1_LinkClicked;
-            toolTip1.SetToolTip(linkLabel1, URLUtils.OriginURL);
+            linkLabel1.Text = $"萧云也❤️专用版 Version: {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version}";
+            // linkLabel1.Links.Add(0, linkLabel1.Text.Length, URLUtils.OriginURL);
+            // linkLabel1.LinkClicked += LinkLabel1_LinkClicked;
+            // toolTip1.SetToolTip(linkLabel1, URLUtils.OriginURL);
 
-            linkLabel2.Text = $"优化版本 by tylearymf. Version: {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version}";
-            linkLabel2.Links.Add(0, linkLabel2.Text.Length, URLUtils.NewURL);
-            linkLabel2.LinkClicked += LinkLabel2_LinkClicked;
-            toolTip1.SetToolTip(linkLabel2, URLUtils.NewURL);
+            // linkLabel2.Text = $"优化版本 by tylearymf. Version: {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version}";
+            // linkLabel2.Links.Add(0, linkLabel2.Text.Length, URLUtils.NewURL);
+            // linkLabel2.LinkClicked += LinkLabel2_LinkClicked;
+            // toolTip1.SetToolTip(linkLabel2, URLUtils.NewURL);
         }
 
         private void LinkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -38,7 +38,7 @@ namespace SETUNA.Main.Option
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(linkLabel1.Links[0].LinkData.ToString());
+            
         }
 
         // Token: 0x060002D4 RID: 724 RVA: 0x000136F0 File Offset: 0x000118F0
@@ -70,6 +70,7 @@ namespace SETUNA.Main.Option
             Prepare_ScrapMenu();
             RefreshStyleList_Scrap();
 
+            checkBox_autoClearCache.Checked = _so.Setuna.AutoClearCacheEnabled;
             checkBox_topMost.Checked = _so.Setuna.TopMostEnabled;
             checkBox_autoStartup.Checked = Startup.AutoStartup.IsSetup();
             checkBox_cursor.Checked = _so.Setuna.CursorEnabled;
@@ -145,6 +146,7 @@ namespace SETUNA.Main.Option
             }
             _so.Scrap.SubMenuStyles = list;
 
+            _so.Setuna.AutoClearCacheEnabled = checkBox_autoClearCache.Checked;
             _so.Setuna.TopMostEnabled = checkBox_topMost.Checked;
             Startup.AutoStartup.Set(checkBox_autoStartup.Checked);
             _so.Setuna.CursorEnabled = checkBox_cursor.Checked;

@@ -366,6 +366,7 @@ namespace SETUNA
         // Token: 0x060001FB RID: 507 RVA: 0x0000AE80 File Offset: 0x00009080
         private void CloseSetuna()
         {
+            Console.WriteLine("Setuna closed");
             base.Close();
         }
 
@@ -609,6 +610,11 @@ namespace SETUNA
             foreach (HotKeyID item in Enum.GetValues(typeof(HotKeyID)))
             {
                 optSetuna.UnregistHotKey(Handle, item);
+            }
+            // Close all scrap if enabled
+            if (optSetuna.Setuna.AutoClearCacheEnabled)
+            {
+                scrapBook.CloseAllScrap();
             }
         }
 

@@ -41,6 +41,7 @@ namespace SETUNA.Main.Option
             setunaOption.Scrap.MouseOverAlphaValue = 90;
 
 
+            setunaOption.Setuna.AutoClearCacheEnabled = false;
             setunaOption.Setuna.TopMostEnabled = false;
             setunaOption.Setuna.CursorEnabled = false;
             setunaOption.Setuna.FullscreenCursor = false;
@@ -1114,6 +1115,8 @@ namespace SETUNA.Main.Option
 
             // Token: 0x04000155 RID: 341
             public bool ClickCapture3;
+
+            public bool AutoClearCacheEnabled;
 
             public bool TopMostEnabled;
 

@@ -12,7 +12,6 @@ namespace SETUNA.Main
             InitializeComponent();
 
             lblVer.Text = base.ProductName + " " + Application.ProductVersion;
-            label1.Text = URLUtils.NewURL;
         }
 
         // Token: 0x06000274 RID: 628 RVA: 0x0000D565 File Offset: 0x0000B765
@@ -31,6 +30,11 @@ namespace SETUNA.Main
         {
             SplashTimer.Enabled = false;
             base.Close();
+        }
+
+        private void lblVer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
